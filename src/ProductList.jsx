@@ -331,11 +331,16 @@ function ProductList({ onHomeClick }) {
                                         <div className="product-title">{plant.name}</div> {/* Display plant name */}
                                         {/* Display other plant details like description and cost */}
                                         <div className="product-description">{plant.description}</div> {/* Display plant description */}
-                                        <div className="product-cost">${plant.cost}</div> {/* Display plant cost */}
+                                        <div className="product-cost">{plant.cost}</div> {/* Display plant cost */}
                                         <button
                                             className="product-button"
                                             onClick={() => handleAddToCart(plant)}
                                             disabled={addedToCart[plant.name]}  // disable if already added
+                                            style={{
+                                                backgroundColor: addedToCart[plant.name] ? 'gray' : '#4CAF50', // Change color if added
+                                                color: 'white',
+                                                cursor: addedToCart[plant.name] ? 'not-allowed' : 'pointer'
+                                              }}
                                         >
                                             {addedToCart[plant.name] ? "Added to Cart" : "Add to Cart"}
                                         </button>
